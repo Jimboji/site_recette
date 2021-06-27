@@ -1,0 +1,260 @@
+div.commentaires 
+        {
+
+            /*
+            Classe uniquemnet pour mettre des commentaires:
+            
+            Lorsque je crée un nouvelle balise et que je lui donne un nom de classe,
+            je peux ensuite y faire référence dans le CSS. Si je mets .nom_class, toutes les balises
+            utilisant ce nom de classe seront impactées peu importe la balise
+
+            Vidéo 137, style des titres des colonnes.
+            On va regrouper les propriétés des colonnes et utliser les deux classer déjà existantes
+            
+            */
+
+        }
+
+        body {
+            background-color: #8BA1BB;
+
+            font-family: Arial;
+            margin: 0;
+        }
+
+        p.categorie
+        {
+            background-color:black;
+            color: white;
+
+            /*"Inline va permettre de ne sélectionner que le place nécessaire, par contre on n'a pas de
+            maitrise sur les marges du haut et du bas"*/
+
+            /*Le mode inline-block permet d'avoir la main sur les marges du haut et du bas, ce qui
+            va permettre de descendre le texte "Recette"*/
+            
+            display:inline-block;
+            padding: 8px 18px;  /*Va permettre de mettre de l'espacement à gauche à droit en haut
+            et en bas du texte "Recette" */
+            
+            margin-bottom: 0; /*En mettant cette marge à 0, cela va permettre de coller le bloc du texte
+            "Recette" à la zone blanche*/
+            font-weight: bold; 
+            font-size: 20px;
+            
+            
+            }
+
+        div.contenu {
+            background-color:white;
+            /*Haut, droite, bas, gauche*/
+            margin: 0% /*Cette marge a été réduite pour rapprocher le texte "Recette"*/ 8% 10% 8%;
+            /*Il a été possible de voir la place que cela prenait grâce à l'inspecteur du navigateur*/
+            padding: 30px;
+            min-width: 350px;
+            box-shadow: 10px 10px 8px rgb(87, 83, 87); /*Ajout de l'ombre. Le 3ème paramètre est la quantité de flou*/
+
+        }
+
+        h1 { 
+            text-align: center;
+            margin-top: 12px;
+            margin-bottom: 12px;
+
+        }  
+        p.description {
+            text-align: center;
+            max-width: 400px;
+            display: inline-block;
+            font-size: 14px;
+                         
+
+        }
+
+        div.description { 
+            
+            text-align: center;
+
+        }
+        /*Utilisé pour centrer le titre "Recette"*/
+        .positionnement {
+            text-align: center;
+            width : 100%
+        }
+
+        div.categorie{
+            /*Utilisé pour le chevauchement du titre recette*/
+            margin-bottom: -18px;
+            margin-top: 50px;
+        }
+
+        div.ligne_horizontale{
+
+            /*Utilisation pour soulignement*/
+            background-color: rgba(27, 27, 27, 0.795);
+            width: 200px;  
+            height:  1px;
+
+            /*Astuce pour centrer*/
+            margin-left: auto;
+            margin-right: auto;
+
+
+        }
+
+        .centre { /*Centrage de texte et d'image vidéo 132 */
+
+            text-align: center;
+            width: 100%; /*Cela va permettre de centrer en occupant toute la taille de la fenêtre*/
+
+
+        }
+
+        .positionnementImage{
+            display: block;
+            max-height: 600px ; /*Si on s'arrête à cela, l'image va totalement se déformer
+            
+            Pour éviter les déformations, la propriété à utiliser est "object-fit" avec la valeur "cover"
+            pour couper les bords de l'image
+            */
+            object-fit: cover;
+            /*
+            Pour éviter que lorsque l'image se charge la page ne s'affiche pas correctement, on va
+            donner une taille minimal à la zone de l'image Vidéo 135
+            */
+            min-height: 200px;
+            background-color: lightgray;
+        }
+
+        table.infos{
+            position: absolute; bottom: 0;
+            width: 100%;
+            color: white;
+            background-color: #6C829DC0; /*La valeur C0 permet d'ajouter de la transparence*/
+            height: 80px;
+            
+            
+        }
+
+        table.infos td{
+            /*Cela signifie que tous les td de ma table "infos" auront les propriétés déclarées
+
+            Ce n'est pas la même chose que de séparer les classe par une virgule
+            Pour réduire l'espace entre l'entête du tableau et la valeur dasn le tableau,
+            la propriété "vertical-align" va être itilisée
+            */
+
+            text-align: center;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        table.infos th{
+
+            /*
+            Ici on réduit la taille des "th", donc les entête de tableau
+            
+            */
+            font-size: 15px;
+            vertical-align: bottom;
+            padding-bottom: 8px;
+        }
+
+        div.colonne1{
+            /*background-color: lightsteelblue;*/
+            display: inline-block;
+            margin-right: 10%; /*Cela n'apporte pas de grande différence*/
+           
+
+        }
+
+        div.colonne2{
+            /*
+            Pour la deuixème colonne on va l'afficher à droite. Pour cela on va utiliser la fonction
+            "floa: right".
+
+            Cela fonctionne, mais l'affichage n'est pas optimal car la première colonne prend toute la largeur.
+            On va pour cela utiliser "widht" et mettre pour chaque colonne 50%
+            */
+
+            float: right;
+           
+            /*Ce qui va être fait c'est qu'on va répartir les valeurs comunnes des deux classes*/
+
+        }
+
+        div.colonnes{
+
+            /*Pour mettre de l'espace entre les 2 colonnes et le reste de la recette, ajouter un "margin"*/
+            width: 45%;
+            margin-top: 20px;
+
+            
+        }
+        
+        div.colonnes h2{
+
+            /*
+            - Ayant fait uen classe colonnes commune au deux colonnes, je vais pouvoir appeler mes titres.
+            - Avec la fonction "text-transform", je vais pouvoir mettre le texte en majuscule.
+            - Si je souhaite à présent souligner les titres, je peux ajouter la fonction "border" en lui
+            donnant les bons paramètres. Pour afficher une ligne, je dois utiliser la propriété "solid".
+            Cela donne une barre complète. L'astuce est de réduire le width dans les colonnes à 45% et 
+            ajouter un margin-ritght de 10% pour la colonne 1
+            - 
+            
+            */
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 15px;
+            border-bottom: 5px solid #6C829D;
+            padding-bottom: 5px;
+            
+        }
+
+      
+
+        div.ingredients p{
+            text-align: center;
+            font-size: 14px;
+            border : 1px solid #6C829D;
+            padding: 8px 0;
+            margin-top: 4px;
+            margin-bottom: 0px;
+        }
+
+        table.preparation p.numero {
+            background-color: #6C829D;
+            color: white;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            padding-top: 4px;
+            box-sizing: border-box;
+            border-radius: 50%;
+            margin: 0;
+
+        }
+
+        table.preparation td{
+            vertical-align: top;
+
+        }
+
+        table.preparation td.prepa_etape{
+            font-size: 14px;
+            padding-left: 10px;
+            padding-bottom: 20px;
+        }
+
+        table.preparation tr{
+            height: 40px;
+        
+        }
+
+        *{
+            overflow: auto;
+        }
+         
