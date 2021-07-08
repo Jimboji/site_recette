@@ -48,10 +48,10 @@ div.commentaires
         div.contenu {
             background-color:white;
             /*Haut, droite, bas, gauche*/
-            margin: 0% /*Cette marge a été réduite pour rapprocher le texte "Recette"*/ 8% 10% 8%;
+            margin: 0% /*Cette marge a été réduite pour rapprocher le texte "Recette"*/ 3% 8% 3%;
             /*Il a été possible de voir la place que cela prenait grâce à l'inspecteur du navigateur*/
             padding: 30px;
-            min-width: 350px;
+            /*min-width: 350px; --> Fonctionnalité descendu dans la condition responsive design*/
             box-shadow: 10px 10px 8px rgb(87, 83, 87); /*Ajout de l'ombre. Le 3ème paramètre est la quantité de flou*/
 
         }
@@ -131,7 +131,7 @@ div.commentaires
             width: 100%;
             color: white;
             background-color: #6C829DC0; /*La valeur C0 permet d'ajouter de la transparence*/
-            height: 80px;
+            height: 50px;
             
             
         }
@@ -163,7 +163,7 @@ div.commentaires
         div.colonne1{
             /*background-color: lightsteelblue;*/
             display: inline-block;
-            margin-right: 10%; /*Cela n'apporte pas de grande différence*/
+           /*margin-right: 10%; /*Cela n'apporte pas de grande différence*/
            
 
         }
@@ -186,7 +186,7 @@ div.commentaires
         div.colonnes{
 
             /*Pour mettre de l'espace entre les 2 colonnes et le reste de la recette, ajouter un "margin"*/
-            width: 45%;
+            width: 100%;
             margin-top: 20px;
 
             
@@ -257,4 +257,83 @@ div.commentaires
         *{
             overflow: auto;
         }
+
+        /*Style pour ordinateurs*/
+        @media only screen and (min-width: 768px) {
+            div.contenu {
+                min-width: 350px; 
+                margin: 0% /*Cette marge a été réduite pour rapprocher le texte "Recette"*/ 8% 10% 8%;
+            }
+
+            table.infos{
+                background-color: #6C829DC0; /*La valeur C0 permet d'ajouter de la transparence*/
+                height: 80px;
+                
+                
+            }
+
+            table.infos td{
+                /*Adaptation de la taille de la police pour la partie "Difficulté, facile, etct"*/
+                font-size: 12px;
+               
+            }
+    
+            table.infos th{
+    
+                /*Adaptation des titres*/
+                font-size: 14px;
+                
+            }
+
+
+            div.colonne1{
+                /*background-color: lightsteelblue;*/
+               
+                margin-right: 10%; /*Cela n'apporte pas de grande différence*/
+               
+    
+            }
+    
+            div.colonne2{
+                /*
+                Pour la deuixème colonne on va l'afficher à droite. Pour cela on va utiliser la fonction
+                "floa: right".
+    
+                Cela fonctionne, mais l'affichage n'est pas optimal car la première colonne prend toute la largeur.
+                On va pour cela utiliser "widht" et mettre pour chaque colonne 50%
+                */
+    
+                float: right;
+               
+                /*Ce qui va être fait c'est qu'on va répartir les valeurs comunnes des deux classes*/
+    
+            }
+    
+            div.colonnes{
+    
+                /*Pour mettre de l'espace entre les 2 colonnes et le reste de la recette, ajouter un "margin"*/
+                width: 45%;
+                
+    
+                
+            }
+            
+            
+           
+
+          }
+
+          @media only screen and (min-width: 900px) {
+
+            /*Modification du margin en cas d'écrans très large*/
+
+            div.contenu {
+                /*On souhaite que les marges à gauche et à droite soient égales*/
+                margin-left: auto;
+                margin-right: auto;
+                width: 645px;
+            }
+
+
+          }
          
